@@ -28,6 +28,7 @@ $(document).ready(function(){
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
 
   $("button").on("click", function(event){
@@ -37,5 +38,7 @@ $(document).ready(function(){
       $dancer.css('left', '20px');
     }
   });
+
+  $()
 });
 
