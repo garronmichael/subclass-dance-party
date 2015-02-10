@@ -11,6 +11,30 @@ var Dancer = function(top, left, timeBetweenSteps){
 
   this._timeBetweenSteps = timeBetweenSteps;
 
+  this.$node.on('click', function(event){
+    var y = parseInt(($(this).css('top')).split('px')[0]);
+    var x = parseInt(($(this).css('left')).split('px')[0]);
+    var closestDancer;
+    var closestDistance;
+    for(var i = 0; i < window.dancers.length; i++){
+     var $dancer = window.dancers[i].$node;
+     var partnerY = parseInt(($dancer.css('top')).split('px')[0]);
+     var partnerX = parseInt(($dancer.css('left')).split('px')[0]);
+     var dx = x - partnerX;
+     var dy = y - partnerY;
+     var dist = Math.sqrt(dx*dx + dy*dy);
+     if(!closestDancer || dist > closestDistance) {
+      closestDistance = dist;
+      closestDancer = [$dancer, partnerX, partnerY];
+     }
+    }
+    $(this).css({
+      'top': closestDancer[2] + 'px',
+      'left': closestDancer[1] + 'px'
+    });
+  })
+
+
 };
 
 Dancer.prototype.step = function(){
@@ -29,3 +53,5 @@ Dancer.prototype.setPosition = function(top, left){
   };
   this.$node.css(styleSettings);
 };
+
+
