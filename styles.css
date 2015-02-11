@@ -6,26 +6,67 @@ body{
   background-color:#444;
   font-size: 18px;
   background-image: url('lib/img/field.jpg');
+  font-family: Helvetica Nueue, Helvetica, sans-serif;
+  font-weight: 100;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: white;
 }
-.title, .addDancerButton{
-  padding:5px 12px;
-  float:right;
+
+.buttonBar {
+  margin: 50px auto 0 auto;
+  height: 200px;
+  width: 100%px;
+  /*border: 1px solid black;*/
 }
-.topbar{
-  height:32px;
-  background-color: #555;
+button {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  font-size: 18px;
+  background-color: white;
+  color: #00ffcc;
+  font-family: Helvetica Nueue, Helvetica, sans-serif;
+  font-weight: 300;
+  position: relative;
+  opacity: .95;
+  margin: 0 10px 0 10px;
+  border: 2px solid #ddddff;
 }
-.title{
-  background-color: #777;
+
+.title {
+  font-size: 64px;
+  text-align: center;
+  background-color: #ddddff;
+  border-radius: 10px;
+  padding: 10px;
 }
+
+.titleDiv {
+  width: 100%;
+  margin: 20px auto 0 auto;
+  text-align: center;
+}
+
 .dancer{
-/*  border:10px solid red;
-  border-radius:10px;*/
   position:absolute;
-  background-image: url('lib/img/puppy.gif');
+  background-image: url('lib/img/bunny.gif');
   height: 128px;
   width: 128px;
+  -webkit-transition: 2s;
+}
+
+.puppy {
+  background-image: url('lib/img/puppy.gif');
+}
+
+.eagle {
+  background-image: url('lib/img/eagle.gif');
+  height: 222px;
+  width: 250px;
+}
+
+.flip {
+  -webkit-transform: rotateZ(360deg);
+  -webkit-transition: 1s;
 }

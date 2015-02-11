@@ -1,14 +1,14 @@
-var BouncyDancer = function(top, left, timeBetweenSteps){
+var Bunny = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
   this.isBouncing = false;
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
 };
 
-BouncyDancer.prototype = Object.create(Dancer.prototype);
-BouncyDancer.prototype.constructor = BouncyDancer;
+Bunny.prototype = Object.create(Dancer.prototype);
+Bunny.prototype.constructor = Bunny;
 
-BouncyDancer.prototype.step = function(){
+Bunny.prototype.step = function(){
   // call the old version of step at the beginning of any call to this new version of step
   this.oldStep();
 
@@ -19,10 +19,10 @@ BouncyDancer.prototype.step = function(){
   top = parseInt(top.split('px')[0]);
 
   if (this.isBouncing) {
-    top += 10;
+    top += 50;
     this.isBouncing = false;
   } else {
-    top -= 10;
+    top -= 50;
     this.isBouncing = true;
   }
 
@@ -31,4 +31,4 @@ BouncyDancer.prototype.step = function(){
     'border-color': 'green'
   });
 };
-BouncyDancer.prototype.oldStep = Dancer.prototype.step;
+Bunny.prototype.oldStep = Dancer.prototype.step;
