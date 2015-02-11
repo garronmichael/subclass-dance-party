@@ -14,11 +14,16 @@
         <span class="title">Majestic Meadow</span>
       <div>
     <div class="buttonBar">
-      <button class="addDancerButton" data-dancer-maker-function-name="Eagle">Eagle</button>
       <button class="addDancerButton" data-dancer-maker-function-name="Puppy">Puppy</button>
       <button class="addDancerButton" data-dancer-maker-function-name="Bunny">Bunny</button>
+      <button class="addDancerButton eb" onclick="this.firstChild.play()" data-dancer-maker-function-name="Eagle"><audio src="lib/eagle-call.mp3"></audio>Eagle</button>
       <button class="lineUp">Line Up</button>
+      <button class="scatter">Scatter</button>
     </div>
+    <audio autoplay="autoplay">
+      <source src="lib/eagle.mp3">
+    </audio>
+<!--     <audio class='eagleCall'><source src='lib/eagle-call.mp3'></audio> -->
     <script src="src/init.js"></script>
   </body>
 </html>

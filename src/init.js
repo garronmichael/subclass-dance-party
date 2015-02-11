@@ -25,8 +25,8 @@ $(document).ready(function(){
 
     // var dancer = new Puppy(args);
     var dancer = new window[dancerMakerFunctionName](
-      ($("body").height()-35) * Math.random() + 100,
-      $("body").width() * Math.random(),
+      550 * Math.random() + 250,
+      900 * Math.random() + 150,
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
@@ -38,6 +38,17 @@ $(document).ready(function(){
     for(var i = 0; i < $dancers.length; i++) {
       var $dancer = $($dancers[i]);
       $dancer.css('left', '20px');
+    }
+  });
+
+  $(".scatter").on("click", function(event){
+    var $dancers = $(".dancer");
+    for(var i = 0; i < $dancers.length; i++) {
+      var $dancer = $($dancers[i]);
+      $dancer.css({
+        top: (550 * Math.random() + 250) + 'px',
+        left: (900 * Math.random() + 150) + 'px'
+      });
     }
   });
 

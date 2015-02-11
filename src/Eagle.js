@@ -4,11 +4,11 @@ var Eagle = function(top, left, timeBetweenSteps){
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
   this.$node.addClass('eagle');
+  this.target;
 
   // this.$node.on('click', function(event){
 
   // })
-
   setTimeout(this.swoopIn.bind(this), 10);
   setTimeout(this.swoopOut.bind(this), 1000);
   setTimeout(this.remove.bind(this), 6000);
@@ -27,11 +27,12 @@ Eagle.prototype.step = function(){
 };
 
 Eagle.prototype.swoopIn = function() {
-  var target = window.dancers[0];
-  var tx = parseInt((target.$node.css('top')).split('px')[0]);
-  var ty = parseInt((target.$node.css('left')).split('px')[0]);
+  $('.eb').hide();
+  this.target = window.dancers[0];
+  var tx = parseInt((this.target.$node.css('top')).split('px')[0]);
+  var ty = parseInt((this.target.$node.css('left')).split('px')[0]);
   this.$node.css({
-    top: (tx - 75) + 'px',
+    top: (tx - 50) + 'px',
     left: (ty - 50) + 'px',
     '-webkit-transition': '1s',
     'transition-timing-function': 'linear'
@@ -39,7 +40,6 @@ Eagle.prototype.swoopIn = function() {
 };
 
 Eagle.prototype.swoopOut = function() {
-  var target = window.dancers[0];
   var offScreen = {
     top: '-200px',
     left: '-200px',
@@ -48,13 +48,17 @@ Eagle.prototype.swoopOut = function() {
   };
 
   this.$node.css(offScreen);
-  target.$node.css(offScreen);
+  offScreen.top = '-120px';
+  offScreen['transform'] = 'scale(.6)';
+  this.target.$node.css(offScreen);
 
 };
 
 Eagle.prototype.remove = function () {
-  console.log(this.$node.remove());
-  console.log(window.dancers.shift());
-  console.log(window.dancers.pop());
+  $('.eb').show();
+  this.$node.remove();
+  this.target.$node.remove();
+  window.dancers.shift();
+  window.dancers.pop();
 
 };
